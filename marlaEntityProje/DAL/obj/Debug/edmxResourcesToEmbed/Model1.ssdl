@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarlaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adisyon">
+    <Key>
+      <PropertyRef Name="AdisyonID" />
+    </Key>
+    <Property Name="AdisyonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdisyonOdemeDetay">
+    <Key>
+      <PropertyRef Name="AdisyonOdemeDetayID" />
+    </Key>
+    <Property Name="AdisyonOdemeDetayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdisyonID" Type="int" Nullable="false" />
+    <Property Name="OdemeYontemiID" Type="int" Nullable="false" />
+    <Property Name="OdemeYontemiAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AdisyonSiparisDetay">
+    <Key>
+      <PropertyRef Name="AdisyonSiparisDetayID" />
+    </Key>
+    <Property Name="AdisyonSiparisDetayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiparisID" Type="int" Nullable="false" />
+    <Property Name="AdisyonID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calisan">
+    <Key>
+      <PropertyRef Name="CalisanID" />
+    </Key>
+    <Property Name="CalisanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalisanAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CalisanSoyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unvan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CalisanDetay">
+    <Key>
+      <PropertyRef Name="CalisanDetayID" />
+    </Key>
+    <Property Name="CalisanDetayID" Type="int" Nullable="false" />
+    <Property Name="Maas" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Tckn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TelNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Depo">
+    <Key>
+      <PropertyRef Name="DepoID" />
+    </Key>
+    <Property Name="DepoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepoAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DepoMalzemeDetay">
+    <Key>
+      <PropertyRef Name="DepoMalzemeID" />
+    </Key>
+    <Property Name="DepoMalzemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepoID" Type="int" Nullable="false" />
+    <Property Name="MalzemeID" Type="int" Nullable="false" />
+    <Property Name="DepoStok" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Malzeme">
+    <Key>
+      <PropertyRef Name="MalzemeID" />
+    </Key>
+    <Property Name="MalzemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MalzemeAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="bit" />
+    <Property Name="MalzemeKategoriID" Type="int" />
+    <Property Name="TedarikciID" Type="int" />
+  </EntityType>
+  <EntityType Name="MalzemeKategori">
+    <Key>
+      <PropertyRef Name="MalzemeKategoriID" />
+    </Key>
+    <Property Name="MalzemeKategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MalzemeKategoriAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MenuKategori">
+    <Key>
+      <PropertyRef Name="MenuKategoriID" />
+    </Key>
+    <Property Name="MenuKategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuKategoriAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="MenuID" Type="int" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OdemeYontemi">
+    <Key>
+      <PropertyRef Name="OdemeYontemiID" />
+    </Key>
+    <Property Name="OdemeYontemiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OdemeYontemiAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="RestaurantID" />
+    </Key>
+    <Property Name="RestaurantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sehir" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="250" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="12" />
+    <Property Name="MenuID" Type="int" />
+  </EntityType>
+  <EntityType Name="RestaurantMalzemeDetay">
+    <Key>
+      <PropertyRef Name="RestaurantMalzemeDetay" />
+    </Key>
+    <Property Name="RestaurantMalzemeDetay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MalzemeID" Type="int" Nullable="false" />
+    <Property Name="RestaurantId" Type="int" Nullable="false" />
+    <Property Name="RestaurantStok" Type="int" />
+  </EntityType>
+  <EntityType Name="Siparis">
+    <Key>
+      <PropertyRef Name="SiparisID" />
+    </Key>
+    <Property Name="SiparisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiparisTarihi" Type="datetime" Nullable="false" />
+    <Property Name="TeslimTarihi" Type="datetime" Nullable="false" />
+    <Property Name="SiparisTuru" Type="bit" />
+    <Property Name="MasaNumarası" Type="int" />
+    <Property Name="MusteriID" Type="int" />
+    <Property Name="CalisanId" Type="int" />
+  </EntityType>
+  <EntityType Name="Tedarikci">
+    <Key>
+      <PropertyRef Name="TedarikciID" />
+    </Key>
+    <Property Name="TedarikciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TedarikciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KategoriID" Type="int" Nullable="false" />
+    <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UrunAciklamasi" Type="nvarchar" MaxLength="250" />
+    <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="UrunMalzemeDetay">
+    <Key>
+      <PropertyRef Name="UrunMalzemeID" />
+    </Key>
+    <Property Name="UrunMalzemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunID" Type="int" Nullable="false" />
+    <Property Name="MalzemeID" Type="int" Nullable="false" />
+    <Property Name="MalzemeStok" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UrunSiparisDetay">
+    <Key>
+      <PropertyRef Name="UrunSiparisDetay" />
+    </Key>
+    <Property Name="UrunSiparisDetay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunID" Type="int" Nullable="false" />
+    <Property Name="SiparisID" Type="int" Nullable="false" />
+    <Property Name="SiparisMiktari" Type="int" />
+    <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Malzeme__Malzeme__534D60F1">
+    <End Role="MalzemeKategori" Type="Self.MalzemeKategori" Multiplicity="0..1" />
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MalzemeKategori">
+        <PropertyRef Name="MalzemeKategoriID" />
+      </Principal>
+      <Dependent Role="Malzeme">
+        <PropertyRef Name="MalzemeKategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Malzeme__Tedarik__5441852A">
+    <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="0..1" />
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tedarikci">
+        <PropertyRef Name="TedarikciID" />
+      </Principal>
+      <Dependent Role="Malzeme">
+        <PropertyRef Name="TedarikciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MenuKateg__MenuI__5AEE82B9">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+    <End Role="MenuKategori" Type="Self.MenuKategori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="MenuKategori">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Restauran__MenuI__4E88ABD4">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Siparis__Calisan__5BE2A6F2">
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="0..1" />
+    <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Calisan">
+        <PropertyRef Name="CalisanID" />
+      </Principal>
+      <Dependent Role="Siparis">
+        <PropertyRef Name="CalisanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Siparis__Musteri__5070F446">
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="0..1" />
+    <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteri">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="Siparis">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdisyonOdemeDetay01">
+    <End Role="Adisyon" Type="Self.Adisyon" Multiplicity="1" />
+    <End Role="AdisyonOdemeDetay" Type="Self.AdisyonOdemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adisyon">
+        <PropertyRef Name="AdisyonID" />
+      </Principal>
+      <Dependent Role="AdisyonOdemeDetay">
+        <PropertyRef Name="AdisyonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdisyonOdemeDetay02">
+    <End Role="OdemeYontemi" Type="Self.OdemeYontemi" Multiplicity="1" />
+    <End Role="AdisyonOdemeDetay" Type="Self.AdisyonOdemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OdemeYontemi">
+        <PropertyRef Name="OdemeYontemiID" />
+      </Principal>
+      <Dependent Role="AdisyonOdemeDetay">
+        <PropertyRef Name="OdemeYontemiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdisyonOdemeDetay05">
+    <End Role="Adisyon" Type="Self.Adisyon" Multiplicity="1" />
+    <End Role="AdisyonSiparisDetay" Type="Self.AdisyonSiparisDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adisyon">
+        <PropertyRef Name="AdisyonID" />
+      </Principal>
+      <Dependent Role="AdisyonSiparisDetay">
+        <PropertyRef Name="AdisyonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdisyonOdemeDetay06">
+    <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+    <End Role="AdisyonSiparisDetay" Type="Self.AdisyonSiparisDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siparis">
+        <PropertyRef Name="SiparisID" />
+      </Principal>
+      <Dependent Role="AdisyonSiparisDetay">
+        <PropertyRef Name="SiparisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Calisan01">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Calisan">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_CalisanDetay01">
+    <End Role="Calisan" Type="Self.Calisan" Multiplicity="1" />
+    <End Role="CalisanDetay" Type="Self.CalisanDetay" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Calisan">
+        <PropertyRef Name="CalisanID" />
+      </Principal>
+      <Dependent Role="CalisanDetay">
+        <PropertyRef Name="CalisanDetayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_DepoMalzemeDetay01">
+    <End Role="Depo" Type="Self.Depo" Multiplicity="1" />
+    <End Role="DepoMalzemeDetay" Type="Self.DepoMalzemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depo">
+        <PropertyRef Name="DepoID" />
+      </Principal>
+      <Dependent Role="DepoMalzemeDetay">
+        <PropertyRef Name="DepoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_DepoMalzemeDetay02">
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="1" />
+    <End Role="DepoMalzemeDetay" Type="Self.DepoMalzemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malzeme">
+        <PropertyRef Name="MalzemeID" />
+      </Principal>
+      <Dependent Role="DepoMalzemeDetay">
+        <PropertyRef Name="MalzemeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_RestaurantMalzemeDetay01">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1" />
+    <End Role="RestaurantMalzemeDetay" Type="Self.RestaurantMalzemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="RestaurantMalzemeDetay">
+        <PropertyRef Name="RestaurantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_RestaurantMalzemeDetay02">
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="1" />
+    <End Role="RestaurantMalzemeDetay" Type="Self.RestaurantMalzemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malzeme">
+        <PropertyRef Name="MalzemeID" />
+      </Principal>
+      <Dependent Role="RestaurantMalzemeDetay">
+        <PropertyRef Name="MalzemeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_UrunKategori">
+    <End Role="MenuKategori" Type="Self.MenuKategori" Multiplicity="1" />
+    <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuKategori">
+        <PropertyRef Name="MenuKategoriID" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="KategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_UrunMalzemeDetay01">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+    <End Role="UrunMalzemeDetay" Type="Self.UrunMalzemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunMalzemeDetay">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_UrunMalzemeDetay02">
+    <End Role="Malzeme" Type="Self.Malzeme" Multiplicity="1" />
+    <End Role="UrunMalzemeDetay" Type="Self.UrunMalzemeDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malzeme">
+        <PropertyRef Name="MalzemeID" />
+      </Principal>
+      <Dependent Role="UrunMalzemeDetay">
+        <PropertyRef Name="MalzemeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_UrunSiparisDetay01">
+    <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+    <End Role="UrunSiparisDetay" Type="Self.UrunSiparisDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siparis">
+        <PropertyRef Name="SiparisID" />
+      </Principal>
+      <Dependent Role="UrunSiparisDetay">
+        <PropertyRef Name="SiparisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_UrunSiparisDetay02">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+    <End Role="UrunSiparisDetay" Type="Self.UrunSiparisDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunSiparisDetay">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MarlaModelStoreContainer">
+    <EntitySet Name="Adisyon" EntityType="Self.Adisyon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdisyonOdemeDetay" EntityType="Self.AdisyonOdemeDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdisyonSiparisDetay" EntityType="Self.AdisyonSiparisDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calisan" EntityType="Self.Calisan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CalisanDetay" EntityType="Self.CalisanDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Depo" EntityType="Self.Depo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepoMalzemeDetay" EntityType="Self.DepoMalzemeDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Malzeme" EntityType="Self.Malzeme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MalzemeKategori" EntityType="Self.MalzemeKategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuKategori" EntityType="Self.MenuKategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OdemeYontemi" EntityType="Self.OdemeYontemi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RestaurantMalzemeDetay" EntityType="Self.RestaurantMalzemeDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tedarikci" EntityType="Self.Tedarikci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunMalzemeDetay" EntityType="Self.UrunMalzemeDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunSiparisDetay" EntityType="Self.UrunSiparisDetay" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Malzeme__Malzeme__534D60F1" Association="Self.FK__Malzeme__Malzeme__534D60F1">
+      <End Role="MalzemeKategori" EntitySet="MalzemeKategori" />
+      <End Role="Malzeme" EntitySet="Malzeme" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Malzeme__Tedarik__5441852A" Association="Self.FK__Malzeme__Tedarik__5441852A">
+      <End Role="Tedarikci" EntitySet="Tedarikci" />
+      <End Role="Malzeme" EntitySet="Malzeme" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MenuKateg__MenuI__5AEE82B9" Association="Self.FK__MenuKateg__MenuI__5AEE82B9">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuKategori" EntitySet="MenuKategori" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Restauran__MenuI__4E88ABD4" Association="Self.FK__Restauran__MenuI__4E88ABD4">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Restaurant" EntitySet="Restaurant" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Siparis__Calisan__5BE2A6F2" Association="Self.FK__Siparis__Calisan__5BE2A6F2">
+      <End Role="Calisan" EntitySet="Calisan" />
+      <End Role="Siparis" EntitySet="Siparis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Siparis__Musteri__5070F446" Association="Self.FK__Siparis__Musteri__5070F446">
+      <End Role="Musteri" EntitySet="Musteri" />
+      <End Role="Siparis" EntitySet="Siparis" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdisyonOdemeDetay01" Association="Self.Fk_AdisyonOdemeDetay01">
+      <End Role="Adisyon" EntitySet="Adisyon" />
+      <End Role="AdisyonOdemeDetay" EntitySet="AdisyonOdemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdisyonOdemeDetay02" Association="Self.Fk_AdisyonOdemeDetay02">
+      <End Role="OdemeYontemi" EntitySet="OdemeYontemi" />
+      <End Role="AdisyonOdemeDetay" EntitySet="AdisyonOdemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdisyonOdemeDetay05" Association="Self.Fk_AdisyonOdemeDetay05">
+      <End Role="Adisyon" EntitySet="Adisyon" />
+      <End Role="AdisyonSiparisDetay" EntitySet="AdisyonSiparisDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdisyonOdemeDetay06" Association="Self.Fk_AdisyonOdemeDetay06">
+      <End Role="Siparis" EntitySet="Siparis" />
+      <End Role="AdisyonSiparisDetay" EntitySet="AdisyonSiparisDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Calisan01" Association="Self.Fk_Calisan01">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Calisan" EntitySet="Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_CalisanDetay01" Association="Self.Fk_CalisanDetay01">
+      <End Role="Calisan" EntitySet="Calisan" />
+      <End Role="CalisanDetay" EntitySet="CalisanDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_DepoMalzemeDetay01" Association="Self.Fk_DepoMalzemeDetay01">
+      <End Role="Depo" EntitySet="Depo" />
+      <End Role="DepoMalzemeDetay" EntitySet="DepoMalzemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_DepoMalzemeDetay02" Association="Self.Fk_DepoMalzemeDetay02">
+      <End Role="Malzeme" EntitySet="Malzeme" />
+      <End Role="DepoMalzemeDetay" EntitySet="DepoMalzemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_RestaurantMalzemeDetay01" Association="Self.Fk_RestaurantMalzemeDetay01">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="RestaurantMalzemeDetay" EntitySet="RestaurantMalzemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_RestaurantMalzemeDetay02" Association="Self.Fk_RestaurantMalzemeDetay02">
+      <End Role="Malzeme" EntitySet="Malzeme" />
+      <End Role="RestaurantMalzemeDetay" EntitySet="RestaurantMalzemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_UrunKategori" Association="Self.Fk_UrunKategori">
+      <End Role="MenuKategori" EntitySet="MenuKategori" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_UrunMalzemeDetay01" Association="Self.Fk_UrunMalzemeDetay01">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunMalzemeDetay" EntitySet="UrunMalzemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_UrunMalzemeDetay02" Association="Self.Fk_UrunMalzemeDetay02">
+      <End Role="Malzeme" EntitySet="Malzeme" />
+      <End Role="UrunMalzemeDetay" EntitySet="UrunMalzemeDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_UrunSiparisDetay01" Association="Self.Fk_UrunSiparisDetay01">
+      <End Role="Siparis" EntitySet="Siparis" />
+      <End Role="UrunSiparisDetay" EntitySet="UrunSiparisDetay" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_UrunSiparisDetay02" Association="Self.Fk_UrunSiparisDetay02">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunSiparisDetay" EntitySet="UrunSiparisDetay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
